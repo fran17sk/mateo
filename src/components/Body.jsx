@@ -3,6 +3,7 @@ import { collection,getDocs,getDoc,query,serverTimestamp,addDoc} from "firebase/
 import { useState } from "react"
 import { useEffect } from "react"
 import { Register } from "./Register"
+import { Loader } from "./Loader"
 
 const Body = () => {
     const [ultima_leche,setultima_leche] = useState([])
@@ -37,8 +38,11 @@ const Body = () => {
                 
                 let fecha = hours + ":" + minutes
                 let fechasig = hours+3 + ":" + minutes
-                setHora(fecha)
-                setHoraSig(fechasig)
+                setTimeout(()=>{
+
+                    setHora(fecha)
+                    setHoraSig(fechasig)
+                },1000)
         })
         .catch(err=>{
             console.log(err)
@@ -48,9 +52,10 @@ const Body = () => {
 
     return (
         <div>{
-            loading ? <p>Loading...</p> : <div className="data">
+            loading ? <Loader/>: <div className="data">
             <h2 className="text">ULTIMA LECHE: {Hora}</h2>
             <h2 className="text">SIGUIENTE: {HoraSig}</h2>
+
             </div> 
             }
             

@@ -1,0 +1,48 @@
+.cuerpo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+}
+.container{
+    position: relative;
+    width: 125px;
+
+
+}
+.container .loader{
+    max-width: 100px;
+    height: 100px;
+    border: solid 5px rgb(162, 174, 224);
+    border-top: solid 5px rgb(230, 204, 204);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    animation: loader .8s linear infinite;
+}
+@keyframes loader{
+    0%{
+    transform: rotate(0deg);
+    }
+    100%{
+    transform: rotate(360deg);
+    }
+}
+.container .mesage{
+    font-weight: 900;
+    position: absolute;
+    color: rgb(255, 255, 255);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    animation: mesage 1s alternate infinite ease-in-out;
+}
+@keyframes mesage{
+    0%{
+    opacity: .2;
+    }
+    100%{
+    opacity: 1;
+    }
+}
